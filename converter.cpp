@@ -59,42 +59,46 @@ void Converter::menu()
 }
 
 
-void BtoD(int input) // Chris
+void Converter::BtoD(std::string valueInput) // Chris
 {
 
 }
 
-void DtoB(int input) // Juan
+void Converter::DtoB(std::string valueInput) // Juan
 {
 
 }
 
-void DtoH(int input) // Juan
+void Converter::DtoH(std::string valueInput) // Juan
 {
 
 }
 
-void HtoD(int input) // Chris
+void Converter::HtoD(std::string valueInput) // Chris
 {
 
 }
 
-void BtoH(int input) // Nathan
+void Converter::BtoH(std::string valueInput) // Nathan
 {
 
 }
 
-void HtoB(int input) // Nathan
+void Converter::HtoB(std::string valueInput) // Nathan
 {
 
 }
 
-void binaryInput()
+void Converter::binaryInput()
 {
-    // should ask for a binary input
-    //then check to see if it satisfies what a binary input can be
-    //i.e. 1 and 0 only
-    // then update the valueInput variable to this value
+    bool flag;
+    std::cout << "Enter a binary input:";
+    std::cin >> valueInput;
+    for(int i = 0;i<valueInput.size();i++)
+    {
+        if(valueInput[i] != '0' && valueInput[i] != '1')
+        flag = false;
+    }
 }
 
 void decimalInput()
