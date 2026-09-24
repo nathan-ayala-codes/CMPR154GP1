@@ -80,7 +80,7 @@ void Converter::HtoD(std::string valueInput) // Chris
 
 void Converter::BtoH(std::string valueInput) // Nathan
 {
-    
+    std::vector<int> 
 }
 
 void Converter::HtoB(std::string valueInput) // Nathan
