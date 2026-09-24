@@ -1,8 +1,7 @@
 #include "converter.h"
-
 Converter::Converter()
 {
-
+    this->menu();
 }
 void Converter::menu()
 {
@@ -21,7 +20,7 @@ void Converter::menu()
 
         std::cout << "Enter your choice:";
         std::cin >> userInput;
-        while(userInput != '1' || '2' || '3' || '4' || '5' || '7')
+        while(userInput != '1' && userInput != '2' && userInput != '3' && userInput != '4' && userInput != '5' && userInput != '6' && userInput != '7')
         {
             std::cout << "Error: Invalid input, try again:";
             std::cin >> userInput;
@@ -54,7 +53,7 @@ void Converter::menu()
                 break;
         }
 
-    }while(userInput != 7);
+    }while(userInput != '7');
     
 }
 
@@ -81,7 +80,7 @@ void Converter::HtoD(std::string valueInput) // Chris
 
 void Converter::BtoH(std::string valueInput) // Nathan
 {
-
+    
 }
 
 void Converter::HtoB(std::string valueInput) // Nathan
@@ -91,17 +90,23 @@ void Converter::HtoB(std::string valueInput) // Nathan
 
 void Converter::binaryInput()
 {
-    bool flag;
-    std::cout << "Enter a binary input:";
-    std::cin >> valueInput;
-    for(int i = 0;i<valueInput.size();i++)
+    bool flag = true;
+    do
     {
-        if(valueInput[i] != '0' && valueInput[i] != '1')
-        flag = false;
+        std::cout << "Enter a binary input:";
+        std::cin >> valueInput;
+        for(int i = 0;i<valueInput.size();i++)
+        {
+            if(valueInput[i] != '0' && valueInput[i] != '1')
+            flag = false;
+            else
+            flag = true;
+        }
     }
+    while(flag == false);
 }
 
-void decimalInput()
+void Converter::decimalInput()
 {
     // should ask for a decimal input
     // then check to see if it satisfies what a decimal input can be
@@ -109,7 +114,7 @@ void decimalInput()
     // then update the valueInput variable to this value
 }
 
-void hexadecimalInput()
+void Converter::hexadecimalInput()
 {
     // should ask for a hexadecimal input
     // then check to see if it satisifes what a hexadecimal input can be
