@@ -1,7 +1,5 @@
 #include "converter.h"
 
-using namespace std;
-
 Converter::Converter()
 {
 
@@ -141,13 +139,202 @@ void Converter::HtoD(string input) // Chris
 
 void Converter::BtoH(string input) // Nathan
 {
+    while(input.size() % 4 != 0)
+    {
+        input.insert(0,1,'0');
+    }
+    string hexadecimal = "";
+    vector<int> vec;
+    vector<int> hexaDigitTotal;
+    int sum = 0;
+    for(int i = 0; i < input.size();i++)
+    {
+        vec.push_back(input[i] - '0');
+    }
+    for(int i = 0;i<input.size();i++)
+    {
 
+
+        if(i % 4 == 0)
+            sum += vec[i] * pow(2,3);
+        else if (i % 4 == 1)
+            sum += vec[i] * pow(2,2);
+        else if (i % 4 == 2)
+            sum += vec[i] * pow(2,1);
+        else if (i % 4 == 3)
+            sum += vec[i] * pow(2,0);
+
+        if (i % 4 == 3)
+        {
+            hexaDigitTotal.push_back(sum);
+            sum = 0;
+        }
+    }
+    for (int i = 0; i < hexaDigitTotal.size();i++)
+    {
+        switch (hexaDigitTotal[i])
+        {
+            case 0:
+            hexadecimal += "0";
+            break;
+            case 1:
+            hexadecimal += "1";
+            break;
+            case 2:
+            hexadecimal += "2";
+            break;
+            case 3:
+            hexadecimal += "3";
+            break;
+            case 4:
+            hexadecimal += "4";
+            break;
+            case 5:
+            hexadecimal += "5";
+            break;
+            case 6:
+            hexadecimal += "6";
+            break;
+            case 7:
+            hexadecimal += "7";
+            break;
+            case 8:
+            hexadecimal += "8";
+            break;
+            case 9:
+            hexadecimal += "9";
+            break;
+            case 10:
+            hexadecimal += "A";
+            break;
+            case 11:
+            hexadecimal += "B";
+            break;
+            case 12:
+            hexadecimal += "C";
+            break;
+            case 13:
+            hexadecimal += "D";
+            break;
+            case 14:
+            hexadecimal += "E";
+            break;
+            case 15:
+            hexadecimal += "F";
+            break;
+            default:
+            cout << "ERROR" << endl;
+            break;
+        }
+
+    }
+    cout << "Hexadecimal Conversion: " + hexadecimal << endl;
 }
 
 
 void Converter::HtoB(string input) // Nathan
 {
-
+    string output = "";
+    for (int i = 0; i < input.length();i++)
+    {
+        int num = 0;
+        switch (input[i])
+        {
+            case '0':
+            num = 0;
+            break;
+            case '1':
+            num = 1;
+            break;
+            case '2':
+            num = 2;
+            break;
+            case '3':
+            num = 3;
+            break;
+            case '4':
+            num = 4;
+            break;
+            case '5':
+            num = 5;
+            break;
+            case '6':
+            num = 6;
+            break;
+            case '7':
+            num = 7;
+            break;
+            case '8':
+            num = 8;
+            break;
+            case '9':
+            num = 9;
+            break;
+            case 'A':
+            case 'a':
+            num = 10;
+            break;
+            case 'B':
+            case 'b':
+            num = 11;
+            break;
+            case 'C':
+            case 'c':
+            num = 12;
+            break;
+            case 'D':
+            case 'd':
+            num = 13;
+            break;
+            case 'E':
+            case 'e':
+            num = 14;
+            break;
+            case 'F':
+            case 'f':
+            num = 15;
+            break;
+            default:
+            cout << "ERROR" << endl;
+            break;
+        }
+        if(num / 8 >= 1)
+        {
+            output += "1";
+            num -= 8;
+        }
+        else
+        {
+            output += "0";
+        }
+        if(num / 4 >= 1)
+        {
+            output += "1";
+            num -= 4;
+        }
+        else
+        {
+            output += "0";
+        }
+        if(num / 2 >= 1)
+        {
+            output += "1";
+            num -= 2;
+        }
+        else
+        {
+            output += "0";
+        }
+        if(num / 1 >= 1)
+        {
+            output += "1";
+            num -= 1;
+        }
+        else
+        {
+            output += "0";
+        }
+    }
 }
 
 
@@ -156,14 +343,13 @@ void Converter::binaryInput()
     bool flag = true;
     do
     {
+        flag = true;
         cout << "Enter a binary input:";
         cin >> valueInput;
         for(int i = 0;i<valueInput.size();i++)
         {
             if(valueInput[i] != '0' && valueInput[i] != '1')
             flag = false;
-            else
-            flag = true;
         }
     }
     while(flag == false);
