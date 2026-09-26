@@ -363,8 +363,28 @@ void Converter::decimalInput()
     // i.e. 0-9 only
     // then update the valueInput variable to this value
 
+    bool valid = false;
+
+    while (!valid)
+    {
     cout << "Enter a decimal number: ";
     cin >> valueInput;
+
+    valid = true;
+
+        for (int i = 0; i < valueInput.length(); i++)
+        {
+            if (valueInput[i] < '0' || valueInput[i] > '9')
+            {
+            valid = false;
+            }
+        }
+
+        if (!valid)
+        {
+        cout << "Error: Please enter an unsigned integer." << endl;
+        }
+    }
 }
 
 
