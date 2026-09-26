@@ -1,4 +1,4 @@
-#include "Converter.h"
+#include "converter.h"
 
 using namespace std;
 
@@ -153,10 +153,20 @@ void Converter::HtoB(string input) // Nathan
 
 void Converter::binaryInput()
 {
-    // should ask for a binary input
-    // then check to see if it satisfies what a binary input can be
-    // i.e. 1 and 0 only
-    // then update the valueInput variable to this value
+    bool flag = true;
+    do
+    {
+        std::cout << "Enter a binary input:";
+        std::cin >> valueInput;
+        for(int i = 0;i<valueInput.size();i++)
+        {
+            if(valueInput[i] != '0' && valueInput[i] != '1')
+            flag = false;
+            else
+            flag = true;
+        }
+    }
+    while(flag == false);
 }
 
 
