@@ -66,7 +66,36 @@ void BtoD(int input) // Chris
 
 void DtoB(int input) // Juan
 {
+int decimal = stoi(input);
+string binary = "";
 
+if (decimal == 0)
+{
+    binary = "0";
+}
+
+while (decimal > 0)
+{
+    int remainder = decimal % 2;
+
+    if (remainder == 0)
+    {
+        binary = "0" + binary;
+    }
+    else
+    {
+        binary = "1" + binary;
+    }
+
+    decimal = decimal / 2;
+}
+
+while (binary.length() < 8)
+{
+    binary = "0" + binary;
+}
+
+cout << "Binary: " << binary << "\n";
 }
 
 void DtoH(int input) // Juan
@@ -103,6 +132,9 @@ void decimalInput()
     // then check to see if it satisfies what a decimal input can be
     //i.e. 0-9 only
     // then update the valueInput variable to this value
+
+     cout << "Enter a decimal number: ";
+     cin >> valueInput;
 }
 
 void hexadecimalInput()
