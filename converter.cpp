@@ -1,146 +1,181 @@
-#include "converter.h"
+#include "Converter.h"
+
+using namespace std;
 
 Converter::Converter()
 {
 
 }
+
 void Converter::menu()
 {
-     do
+    do
     {
-        std::cout << "====================================" << std::endl;
-        std::cout << "      NUMBER SYSTEM CONVERTER       " << std::endl;
-        std::cout << "====================================" << std::endl;
-        std::cout << "\n1. Binary to Decimal\n";
-        std::cout << "2.Decimal to Binary\n";
-        std::cout << "3. Decimal to Hexadecimal\n ";
-        std::cout << "4. Hexadecimal to Decimal\n";
-        std::cout << "5. Binary to Hexadecimal\n";
-        std::cout << "6. Hexadecimal to Binary\n";
-        std::cout << "7. Exit" << std::endl;
+        system("cls");
+        
+        cout << "====================================" << endl;
+        cout << "      NUMBER SYSTEM CONVERTER       " << endl;
+        cout << "====================================" << endl;
+        cout << "\n1. Binary to Decimal\n";
+        cout << "2. Decimal to Binary\n";
+        cout << "3. Decimal to Hexadecimal\n";
+        cout << "4. Hexadecimal to Decimal\n";
+        cout << "5. Binary to Hexadecimal\n";
+        cout << "6. Hexadecimal to Binary\n";
+        cout << "7. Exit" << endl;
 
-        std::cout << "Enter your choice:";
-        std::cin >> userInput;
-        while(userInput != '1' || '2' || '3' || '4' || '5' || '7')
+        cout << "Enter your choice: ";
+        cin >> userInput;
+
+        while (userInput != '1' &&
+            userInput != '2' &&
+            userInput != '3' &&
+            userInput != '4' &&
+            userInput != '5' &&
+            userInput != '6' &&
+            userInput != '7')
         {
-            std::cout << "Error: Invalid input, try again:";
-            std::cin >> userInput;
-        }
-        switch(userInput)
-        {
-            case '1':
-                binaryInput();
-                BtoD(valueInput);
-                break;
-            case '2':
-                decimalInput();
-                DtoB(valueInput);
-                break;
-            case '3':
-                decimalInput();
-                DtoH(valueInput);
-                break;
-            case '4':
-                hexadecimalInput();
-                HtoD(valueInput);
-                break;
-            case '5':
-                binaryInput();
-                BtoH(valueInput);
-                break;
-            case '6':
-                hexadecimalInput();
-                HtoB(valueInput);
-                break;
+            cout << "Error: Invalid input, try again: ";
+            cin >> userInput;
         }
 
-    }while(userInput != 7);
-    
+        switch (userInput)
+        {
+        case '1':
+            binaryInput();
+            BtoD(valueInput);
+            break;
+
+        case '2':
+            decimalInput();
+            DtoB(valueInput);
+            break;
+
+        case '3':
+            decimalInput();
+            DtoH(valueInput);
+            break;
+
+        case '4':
+            hexadecimalInput();
+            HtoD(valueInput);
+            break;
+
+        case '5':
+            binaryInput();
+            BtoH(valueInput);
+            break;
+
+        case '6':
+            hexadecimalInput();
+            HtoB(valueInput);
+            break;
+
+        case '7':
+            cout << "Exiting program..." << endl;
+            break;
+        }
+
+        if (userInput != '7')
+        {
+            system("pause");
+        }
+
+    } while (userInput != '7');
 }
 
 
-void BtoD(int input) // Chris
+void Converter::BtoD(string input) // Chris
 {
 
 }
 
-void DtoB(int input) // Juan
-{
-int decimal = stoi(input);
-string binary = "";
 
-if (decimal == 0)
+void Converter::DtoB(string input) // Juan
 {
-    binary = "0";
-}
+    int decimal = stoi(input);
+    string binary = "";
 
-while (decimal > 0)
-{
-    int remainder = decimal % 2;
+    if (decimal == 0)
+    {
+        binary = "0";
+    }
 
-    if (remainder == 0)
+    while (decimal > 0)
+    {
+        int remainder = decimal % 2;
+
+        if (remainder == 0)
+        {
+            binary = "0" + binary;
+        }
+        else
+        {
+            binary = "1" + binary;
+        }
+
+        decimal = decimal / 2;
+    }
+
+    while (binary.length() < 8)
     {
         binary = "0" + binary;
     }
-    else
-    {
-        binary = "1" + binary;
-    }
 
-    decimal = decimal / 2;
+    cout << "Binary: " << binary << "\n";
 }
 
-while (binary.length() < 8)
+
+void Converter::DtoH(string input) // Juan
 {
-    binary = "0" + binary;
+    int decimal = stoi(input);
+    string hexadecimal = "";
 }
 
-cout << "Binary: " << binary << "\n";
-}
 
-void DtoH(int input) // Juan
+void Converter::HtoD(string input) // Chris
 {
 
 }
 
-void HtoD(int input) // Chris
+
+void Converter::BtoH(string input) // Nathan
 {
 
 }
 
-void BtoH(int input) // Nathan
+
+void Converter::HtoB(string input) // Nathan
 {
 
 }
 
-void HtoB(int input) // Nathan
-{
 
-}
-
-void binaryInput()
+void Converter::binaryInput()
 {
     // should ask for a binary input
-    //then check to see if it satisfies what a binary input can be
-    //i.e. 1 and 0 only
+    // then check to see if it satisfies what a binary input can be
+    // i.e. 1 and 0 only
     // then update the valueInput variable to this value
 }
 
-void decimalInput()
+
+void Converter::decimalInput()
 {
     // should ask for a decimal input
     // then check to see if it satisfies what a decimal input can be
-    //i.e. 0-9 only
+    // i.e. 0-9 only
     // then update the valueInput variable to this value
 
-     cout << "Enter a decimal number: ";
-     cin >> valueInput;
+    cout << "Enter a decimal number: ";
+    cin >> valueInput;
 }
 
-void hexadecimalInput()
+
+void Converter::hexadecimalInput()
 {
     // should ask for a hexadecimal input
-    // then check to see if it satisifes what a hexadecimal input can be
+    // then check to see if it satisfies what a hexadecimal input can be
     // i.e. 0-9 and A-F
     // then update the valueInput variable to this value
 }
