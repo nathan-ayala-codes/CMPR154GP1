@@ -19,6 +19,6 @@ void hexadecimalInput();// take hexadecimal input and make sure it's valid
 
 private:
 char userInput; // menu choice for what user wants to do
-std::string valueInput; // binary, decimal, or hexadecimal input from user
+string valueInput; // binary, decimal, or hexadecimal input from user
 
 };

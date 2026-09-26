@@ -156,8 +156,8 @@ void Converter::binaryInput()
     bool flag = true;
     do
     {
-        std::cout << "Enter a binary input:";
-        std::cin >> valueInput;
+        cout << "Enter a binary input:";
+        cin >> valueInput;
         for(int i = 0;i<valueInput.size();i++)
         {
             if(valueInput[i] != '0' && valueInput[i] != '1')
