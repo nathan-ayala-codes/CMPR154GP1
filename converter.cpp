@@ -84,9 +84,18 @@ void Converter::menu()
 
 
 void Converter::BtoD(string input) // Chris
-{
 
-}
+{
+	BinaryToDecimal converter;
+
+    if (converter.isValid(input))
+    {
+        cout << "Decimal: " << converter.convert(input) << endl;
+    }
+    else
+    {
+		cout << "Error: Invalid binary input." << endl;
+    }
 
 
 void Converter::DtoB(string input) // Juan
