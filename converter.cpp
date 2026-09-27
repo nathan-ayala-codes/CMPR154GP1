@@ -143,8 +143,17 @@ void Converter::DtoH(string input) // Juan
 
 void Converter::HtoD(string input) // Chris
 {
-
+	HexadecimalToDecimal converter;
+    if (converter.isValid(input))
+    {
+        cout << "Decimal: " << converter.convert(input) << endl;
+    }
+    else
+    {
+        cout << "Error: Invalid hexadecimal input." << endl;
+	}
 }
+
 
 
 void Converter::BtoH(string input) // Nathan
