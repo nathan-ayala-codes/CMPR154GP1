@@ -399,8 +399,11 @@ void Converter::decimalInput()
 
 void Converter::hexadecimalInput()
 {
+    cout << "Enter a hexadecimal input: ";
+	cin >> valueInput;
+}
     // should ask for a hexadecimal input
     // then check to see if it satisfies what a hexadecimal input can be
     // i.e. 0-9 and A-F
     // then update the valueInput variable to this value
-}
+
