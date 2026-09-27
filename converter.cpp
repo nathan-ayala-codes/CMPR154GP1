@@ -1,5 +1,6 @@
 #include "converter.h"
-
+#include "BinaryToDecimal.h"
+#include "HexadecimalToDecimal.h"
 Converter::Converter()
 {
 
