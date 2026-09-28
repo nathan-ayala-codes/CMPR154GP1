@@ -1,3 +1,5 @@
+#ifndef CONVERTER_H
+#define CONVERTER_H
 
 #include <string>
 #include <iostream>
@@ -15,12 +17,14 @@ void DtoH(std::string input);//juan
 void HtoD(std::string input);//chris
 void BtoH(std::string input);//nate
 void HtoB(std::string input);//nate
-void binaryInput();// take a binary input and make sure it's valid
-void decimalInput();// take decimal input and make sure it's valid
-void hexadecimalInput();// take hexadecimal input and make sure it's valid
+void binaryInput();// Nate
+void decimalInput();// Juan
+void hexadecimalInput();// Chris
 
 private:
 char userInput; // menu choice for what user wants to do
 string valueInput; // binary, decimal, or hexadecimal input from user
 
 };
+
+#endif

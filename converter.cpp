@@ -97,7 +97,7 @@ void Converter::BtoD(string input) // Chris
     {
 		cout << "Error: Invalid binary input." << endl;
     }
-
+}
 
 void Converter::DtoB(string input) // Juan
 {
@@ -125,7 +125,7 @@ void Converter::DtoB(string input) // Juan
         decimal = decimal / 2;
     }
 
-    while (binary.length() < 8)
+    while(binary.length() < 8)
     {
         binary = "0" + binary;
     }
@@ -158,22 +158,20 @@ void Converter::HtoD(string input) // Chris
 
 void Converter::BtoH(string input) // Nathan
 {
-    while(input.size() % 4 != 0)
-    {
+    while(input.size() % 4 != 0) // Adding "buffer" zeros to make input multiple of 4 
+    {                            // Even if not originally inputted as multiple of 4
         input.insert(0,1,'0');
     }
     string hexadecimal = "";
     vector<int> vec;
     vector<int> hexaDigitTotal;
     int sum = 0;
-    for(int i = 0; i < input.size();i++)
+    for(int i = 0; i < input.size();i++) // Put input string into vector as int
     {
         vec.push_back(input[i] - '0');
     }
-    for(int i = 0;i<input.size();i++)
+    for(int i = 0;i<input.size();i++) // Take the ones, convert to decimal, and add to vector slot
     {
-
-
         if(i % 4 == 0)
             sum += vec[i] * pow(2,3);
         else if (i % 4 == 1)
@@ -189,7 +187,7 @@ void Converter::BtoH(string input) // Nathan
             sum = 0;
         }
     }
-    for (int i = 0; i < hexaDigitTotal.size();i++)
+    for (int i = 0; i < hexaDigitTotal.size();i++) // Convert Each decimal value into its Hexadecimal value
     {
         switch (hexaDigitTotal[i])
         {
@@ -247,6 +245,7 @@ void Converter::BtoH(string input) // Nathan
         }
 
     }
+    cout << "Binary Input: " + input << endl;
     cout << "Hexadecimal Conversion: " + hexadecimal << endl;
 }
 
@@ -254,7 +253,7 @@ void Converter::BtoH(string input) // Nathan
 void Converter::HtoB(string input) // Nathan
 {
     string output = "";
-    for (int i = 0; i < input.length();i++)
+    for (int i = 0; i < input.length();i++) // Convert Hexadecimal input to Int Decimal value
     {
         int num = 0;
         switch (input[i])
@@ -317,7 +316,8 @@ void Converter::HtoB(string input) // Nathan
             cout << "ERROR" << endl;
             break;
         }
-        if(num / 8 >= 1)
+
+        if(num / 8 >= 1) // Convert int decimal value to binary, then add to output string.
         {
             output += "1";
             num -= 8;
@@ -354,12 +354,14 @@ void Converter::HtoB(string input) // Nathan
             output += "0";
         }
     }
+    cout << "Hexadecimal Input: " + input << endl;
+    cout << "Binary Conversion: " + output << endl;
 }
 
 
-void Converter::binaryInput()
+void Converter::binaryInput() // Nate
 {
-    bool flag = true;
+    bool flag = true; // flag to be changed if binary input digit is invalid.
     do
     {
         flag = true;
@@ -371,11 +373,11 @@ void Converter::binaryInput()
             flag = false;
         }
     }
-    while(flag == false);
+    while(flag == false); // Continue taking input until valid binary inputted.
 }
 
 
-void Converter::decimalInput()
+void Converter::decimalInput() // Juan
 {
     // should ask for a decimal input
     // then check to see if it satisfies what a decimal input can be
@@ -407,7 +409,7 @@ void Converter::decimalInput()
 }
 
 
-void Converter::hexadecimalInput()
+void Converter::hexadecimalInput() // Chris
 {
     cout << "Enter a hexadecimal input: ";
 	cin >> valueInput;
