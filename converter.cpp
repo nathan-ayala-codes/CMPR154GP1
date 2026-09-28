@@ -361,19 +361,30 @@ void Converter::HtoB(string input) // Nathan
 
 void Converter::binaryInput() // Nate
 {
-    bool flag = true; // flag to be changed if binary input digit is invalid.
-    do
-    {
-        flag = true;
-        cout << "Enter a binary input:";
-        cin >> valueInput;
-        for(int i = 0;i<valueInput.size();i++)
-        {
-            if(valueInput[i] != '0' && valueInput[i] != '1')
-            flag = false;
-        }
-    }
-    while(flag == false); // Continue taking input until valid binary inputted.
+	bool valid = false;
+
+	while (!valid)
+	{
+    	cout << "Enter a binary number: ";
+    	cin >> valueInput;
+
+    	valid = true;
+
+    	for (int i = 0; i < valueInput.length(); i++)
+    	{
+        	if (valueInput[i] != '0' && valueInput[i] != '1')
+        	{
+            valid = false;
+        	}
+    	}
+
+    	if (!valid)
+    	{
+        	cout << "Error: Please enter a binary number using only 0 and 1." << "\n";
+    	}
+	}
+
+	
 }
 
 
